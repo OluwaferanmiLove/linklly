@@ -4,6 +4,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Navbar from '../../components/Navbar';
 import {detectBrowser, detectOs} from '../../services/screen.service'
+import { linkService } from '../../services/link.service';
 
 function Home() {
   const [loading, setLoading]  = React.useState(false);
@@ -13,6 +14,13 @@ function Home() {
   React.useEffect(() => {
     setOs(detectOs())
     setOs2(detectBrowser())
+  }, [])
+
+  React.useEffect(() => {
+    let data = {
+      link: 'https://www.digitalocean.com/community/tutorials/how-to-build-forms-in-react',
+    };
+    linkService.shortenLink(data);
   }, [])
 
   const handleShorten = e => {

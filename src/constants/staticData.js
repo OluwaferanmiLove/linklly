@@ -1,0 +1,1 @@
+export const apiBaseUrl = 'https://api-v1.amaofaith.com';
