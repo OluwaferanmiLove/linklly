@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Gilroy-Bold';
+    src: local('Roboto'), url(./assets/fonts/Gilroy-Bold.ttf) format('ttf');
+  }
+  
+  @font-face {
+    font-family: 'Gilroy-Medium';
+    src: local('Roboto'), url(./assets/fonts/Gilroy-Medium.ttf) format('ttf');
+  }
+  
+  @font-face {
+    font-family: 'Gilroy-Medium';
+    src: local('Roboto'), url(./assets/fonts/Gilroy-Light.otf) format('otf');
+  }
+}
