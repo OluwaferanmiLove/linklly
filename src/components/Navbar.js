@@ -5,7 +5,7 @@ import logo from '../assets/images/logo.svg';
 function Navbar({focus}) {
   let focusStyles = 'text-mainColor';
   let homeFocus = focus === 'home' && focusStyles;
-  let analyticsFocus = focus === 'analytics' && focusStyles;
+  // let analyticsFocus = focus === 'analytics' && focusStyles;
   return (
     <div className='flex w-full items-center justify-center fixed top-0 left-0 right-0 bg-mainBg'>
       <div className='flex w-baseWidth max-w-baseWidth items-center justify-between py-3 top-0 left-0 right-0'>
