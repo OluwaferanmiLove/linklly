@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Analytics, Error404, Home } from "../screens";
+import { Analytics, Error, Error404, Home, Linking } from "../screens";
 
 function Root() {
   return (
@@ -15,6 +15,10 @@ function Root() {
           <Route path="/404">
             <Error404 />
           </Route>
+          <Route path="/error">
+            <Error />
+          </Route>
+          <Route path="/:id" children={<Linking />} />
           <Route path="/">
             <Home />
           </Route>

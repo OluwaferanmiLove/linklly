@@ -2,14 +2,42 @@ import React from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Navbar from '../../components/Navbar';
+import { linkService } from '../../services/link.service';
 
 function Analytics() {
   const [loading, setLoading]  = React.useState(false);
+  const [showForm, setShowForm] = React.useState(true);
+  const [id, setId] = React.useState();
+  const [analytics, setAnalytics] = React.useState(true);
+
+  const handleTextChange = (e) => {
+    console.log(e.target.value)
+    setId(e.target.value)
+  }
 
   const handleAnalytics = e => {
     e.preventDefault();
-    setLoading(true)
-    alert('You have submitted the form.')
+    setLoading(true);
+    let data = {
+      id,
+    };
+
+    linkService.getAnalytics(data)
+      .then((response) => {
+        setLoading(false);
+        if (response.status === 200) {
+          setAnalytics(response.data.response);
+          console.log(response)
+          setShowForm(false)
+        } else if (response.status === 500) {
+          console.log(`response 500: ${response.data}`)
+        } else {
+          console.log(`response others: ${response.data}`)
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+      })
   }
 
   return (
@@ -23,16 +51,17 @@ function Analytics() {
             </h1>
             <div className='mt-2'>
               <p className='lg:leading-8 leading-6 lg:text-lg md:text-lg text-sm lg:px-10 font-gilroy-medium text-center text-gray-500'>
-              Enter the shortened link to view analytics.
+              Enter the shortened link to id view analytics e.g. '2LKUOLgP'.
               </p>
             </div>
           </header>
-          <form onSubmit={handleAnalytics}>
+          {showForm && <form onSubmit={handleAnalytics}>
             <div className='flex row items-center justify-center lg:flex-nowrap flex-wrap lg:mt-12 mt-6'>
-              <Input />
-              <Button rounded_r_md styles={'lg:mt-0 mt-6'} title={'Check Url'} type={'submit'} loading={loading}  />
+              <Input placeholder={'Enter the shortened link id'} onChange={handleTextChange} />
+              <Button rounded_r_md styles={'lg:mt-0 mt-6'} title={'Check analytics'} type={'submit'} loading={loading}  />
             </div>
-          </form>
+          </form>}
+          <p>{analytics}</p>
         </div>
         <div className='flex w-full items-center justify-center py-2 px-5'>
           <p className='lg:leading-8 leading-6 lg:text-base md:text-base text-xs lg:px-10 font-gilroy-light text-center text-gray-500'>

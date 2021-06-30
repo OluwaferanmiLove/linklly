@@ -14,9 +14,9 @@ function Navbar({focus}) {
           <p className={`${homeFocus} text-mainColor-100 text-lg font-gilroy-medium px-5`}>
             <Link to={'/'}>Home</Link>
           </p>
-          <p className={`${analyticsFocus} text-mainColor-100 text-lg font-gilroy-medium px-5`}>
+          {/* <p className={`${analyticsFocus} text-mainColor-100 text-lg font-gilroy-medium px-5`}>
             <Link to={'/analytics'}>Analytics</Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

@@ -24,10 +24,10 @@ function Button({ styles, rounded_r_md, rounded_l_md, rounded_md, title, type, l
   return (
     loading ?
     <div className={`${styles} ${style} bg-mainColor relative flex justify-center items-center`}>
-      <div class="inline-block animate-spin ease duration-300 w-2 h-2 bg-white mx-1"></div>
-      <div class="inline-block animate-ping ease duration-300 w-2 h-2 bg-white mx-1"></div>
-      <div class="inline-block animate-pulse ease duration-300 w-2 h-2 bg-white mx-1"></div>
-      <div class="inline-block animate-bounce ease duration-300 w-2 h-2 bg-white mx-1"></div>
+      <div className="inline-block animate-spin ease duration-300 w-2 h-2 bg-white mx-1"></div>
+      <div className="inline-block animate-ping ease duration-300 w-2 h-2 bg-white mx-1"></div>
+      <div className="inline-block animate-pulse ease duration-300 w-2 h-2 bg-white mx-1"></div>
+      <div className="inline-block animate-bounce ease duration-300 w-2 h-2 bg-white mx-1"></div>
     </div> :
     <input className={`${styles} ${style} text-white font-gilroy-light bg-mainColor outline-none`} value={title} type={type} />
   );
